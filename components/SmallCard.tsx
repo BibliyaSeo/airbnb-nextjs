@@ -14,7 +14,7 @@ export default function SmallCard({ img, distance, location }: SmallCardProps) {
         hover:scale-105 transition transform duration-200 ease-out"
     >
       <div className="relative h-16 w-16">
-        <Image src={img} alt="img" fill className="rounded-lg" />
+        <Image src={img} alt="img" fill className="rounded-lg" sizes="fill" />
       </div>
       <div>
         <h2>{location}</h2>
