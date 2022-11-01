@@ -12,6 +12,18 @@ export interface InfoCardProps {
   total: string;
 }
 
+export interface InfoCardPropsBlank {
+  img?: string;
+  location?: string;
+  description?: string;
+  lat?: number;
+  long?: number;
+  star?: number;
+  price?: string;
+  title?: string;
+  total?: string;
+}
+
 export default function InfoCard({
   img,
   location,
@@ -24,9 +36,13 @@ export default function InfoCard({
   total,
 }: InfoCardProps) {
   return (
-    <div className="flex">
+    <div
+      className="flex py-7 px-2 border-b cursor-pointer
+      hover:opacity-80 hover:shadow-lg transition
+      duration-200 ease-out first:border-t"
+    >
       <div className="relative h-24 w-40 md:h-52 md:w-80">
-        <Image src={img} alt="img" fill className="object-cover" sizes="fill" />
+        <Image src={img} alt="img" fill className="object-cover rounded-2xl" sizes="fill" />
       </div>
       <div className="flex flex-col flex-grow pl-5">
         <div className="flex justify-between">
@@ -49,7 +65,7 @@ export default function InfoCard({
         <h4 className="text-xl">{title}</h4>
         <div className="border-b w-20 pt-2" />
         <p className="pt-2 text-sm text-gray-500 flex-grow">{description}</p>
-        <div>
+        <div className="flex justify-between items-end pt-5">
           <p className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,8 +82,8 @@ export default function InfoCard({
             {star}
           </p>
           <div>
-            <p>{price}</p>
-            <p>{total}</p>
+            <p className="text-lg font-semibold pb-2 lg:text-2xl">{price}</p>
+            <p className=" text-right font-extralight">{total}</p>
           </div>
         </div>
       </div>
