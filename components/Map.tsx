@@ -11,21 +11,19 @@ interface ViewportProps {
   zoom: number;
 }
 
-interface ICoordinates {
-  latitude: number;
-  longitude: number;
-}
+// interface ICoordinates {
+//   latitude: number;
+//   longitude: number;
+// }
 
-interface ICoordinatesResult extends Array<ICoordinates> {}
+// interface ICoordinatesResult extends Array<ICoordinates> {}
 
 export default function Map({ searchResults }: any) {
   const [selectedLocation, setSelectedLocation] = useState<InfoCardPropsBlank>();
-  const coordinates: ICoordinatesResult =
-    typeof searchResults !== "undefined" &&
-    searchResults?.map((item: InfoCardProps) => ({
-      latitude: item.lat,
-      longitude: item.long,
-    }));
+  const coordinates = searchResults?.map((item: InfoCardProps) => ({
+    latitude: item.lat,
+    longitude: item.long,
+  }));
 
   const center = getCenter(coordinates);
 
