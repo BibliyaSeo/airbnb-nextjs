@@ -5,11 +5,11 @@ import { InfoCardProps, InfoCardPropsBlank } from "./InfoCard";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { isThisMinute } from "date-fns/esm";
 
-interface ViewportProps {
-  latitude: number;
-  longitude: number;
-  zoom: number;
-}
+// interface ViewportProps {
+//   latitude: number;
+//   longitude: number;
+//   zoom: number;
+// }
 
 // interface ICoordinates {
 //   latitude: number;
@@ -25,9 +25,9 @@ export default function Map({ searchResults }: any) {
     longitude: item.long,
   }));
 
-  const center = getCenter(coordinates);
+  const center: any = getCenter(coordinates);
 
-  const [viewport, setViewport] = useState<ViewportProps>({
+  const [viewport, setViewport] = useState({
     latitude: center.latitude,
     longitude: center.longitude,
     zoom: 11,
