@@ -20,10 +20,12 @@ interface ICoordinatesResult extends Array<ICoordinates> {}
 
 export default function Map({ searchResults }: any) {
   const [selectedLocation, setSelectedLocation] = useState<InfoCardPropsBlank>();
-  const coordinates: ICoordinatesResult = searchResults?.map((item: InfoCardProps) => ({
-    latitude: item.lat,
-    longitude: item.long,
-  }));
+  const coordinates: ICoordinatesResult =
+    typeof searchResults !== "undefined" &&
+    searchResults?.map((item: InfoCardProps) => ({
+      latitude: item.lat,
+      longitude: item.long,
+    }));
 
   const center = getCenter(coordinates);
 
